@@ -63,6 +63,8 @@ def getDate(date=None):
     if isinstance(date, (int, float)):
         # date is a timestamp
         return datetime.date.fromtimestamp(date)
+    if isinstance(date, bytes):
+        date = date.decode()
     if isinstance(date, str):
         date = date.replace(" ", "0")
         if len(date) == 6:
